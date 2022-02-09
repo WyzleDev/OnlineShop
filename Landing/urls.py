@@ -3,5 +3,5 @@ from django.urls import include, path
 from Landing import views
 
 urlpatterns = [
-    path('', views.index, name='Landing page')
+    path('', views.home_page , name='Landing page')
 ]

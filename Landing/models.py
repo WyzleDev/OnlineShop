@@ -9,7 +9,7 @@ class User(models.Model):
     country = models.CharField(max_length=128)
     city = models.CharField(max_length=128)
     postal_zip = models.CharField(max_length=128)
+    created = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return "[%s]%s" % (self.id, self.name)
-

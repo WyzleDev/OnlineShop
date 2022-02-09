@@ -20,6 +20,8 @@ admin.site.register(Status, StatusAdmin)
 class OrderAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Order._meta.fields]
     inlines = [ProductInOrderInline]
+    search_fields = ['customer_name', 'customer_email', 'id', 'customer_phone']
+    search_help_text = "Поиск по имени, Email или номеру телефона"
 
     class Meta:
         model = Order

@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
             name='ProductImage',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('image', models.ImageField(upload_to='static/media/products_images/')),
+                ('image', models.ImageField(upload_to='static_dev/media/products_images/')),
                 ('is_active', models.BooleanField(default=True)),
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('updated', models.DateTimeField()),

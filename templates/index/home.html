@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}FoxGold - Home Page{% endblock %}
+
+{% block content %}
+    <a class="btn btn-primary btn-lg btn-floating cart_floating" style="background-color: #ac2bac;" href="/cart" role="button">
+        <i class="fas fa-shopping-cart"></i>
+    </a>
+    <div class="arrow-left"></div>
+
+    <div class="container-body-custom">
+        <!--Default icon-->
+        <nav class="navbar navbar-light bg-light">
+
+
+            <div class="col-sm-2">
+                <div class="FOXGOLD"> FOXGOLD</div>
+            </div>
+            <div class="col"></div>
+            <div class="col"></div>
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarToggleExternalContent3" aria-controls="navbarToggleExternalContent3"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+
+        </nav>
+        <div class="collapse" id="navbarToggleExternalContent3">
+            <div class="bg-light shadow-3 p-4">
+                <button class="btn btn-link btn-block border-bottom m-0">Главная</button>
+                <button class="btn btn-link btn-block border-bottom m-0">Категории</button>
+                <button class="btn btn-link btn-block m-0">Достаква</button>
+                <button class="btn btn-link btn-block m-0">О нас</button>
+            </div>
+        </div>
+
+
+        <div class="section-1 img-responsive">
+            <div class="container-fluid">
+                <img class="img-responsive"
+                     src="{% static 'static_dev/media/banner_img/section1.png' %}">
+                <div class="on_image_text_div">
+                    <span class="on_image_text">Вкуснейшие изделия для вас и ваших близких</span>
+                    <a class="btn section1-btn" href="/">Каталог</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid gallery">
+            <div class="gallery__item gallery__item-1">
+                <img class="gallery__img" src="{% static '/static_dev/GalleryItems/Item1.jpg' %}">
+            </div>
+            <div class="gallery__item gallery__item-2">
+                <img class="gallery__img" src="{% static '/static_dev/GalleryItems/Item2.png' %}">
+            </div>
+            <div class="gallery__item gallery__item-3">
+                <img class="gallery__img" src="{% static '/static_dev/GalleryItems/Item3.jpg' %}">
+            </div>
+            <div class="gallery__item gallery__item-4">
+                <img class="gallery__img" src="{% static '/static_dev/GalleryItems/Item4.jpg' %}">
+            </div>
+            <div class="gallery__item gallery__item-5">
+                <img class="gallery__img" src="{% static '/static_dev/GalleryItems/Item5.jpg' %}">
+            </div>
+            <div class="gallery__item gallery__item-6">
+                <img class="gallery__img" src="{% static '/static_dev/GalleryItems/Item6.jpg' %}">
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="section-2">
+                <h1 class="recommend-to-you-header">Рекомендуем вам</h1>
+                <hr>
+                <div class="recommend">
+                    {% for products_image in products_images %}
+                        <div class="card">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img src="{{ products_image.image }}" class="img-fluid"/>
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-title">{{ products_image.product.name }}</h6>
+                                <p class="card-text">{{ products_image.product.short_description }}</p>
+                                <a href="#!" class="btn btn-custom-blue">В корзину</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+{% endblock %}
